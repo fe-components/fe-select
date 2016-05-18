@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import CSSModules from 'react-css-modules'
-import log from './utils'
+import { log } from './utils'
 import styles from './index.styl'
 
 @CSSModules(styles, { allowMultiple: true, errorWhenNotFound: false })
@@ -13,12 +13,12 @@ export default class extends Component {
   }
   state = {
   }
-  componentDidMont () {
-    log('mount')
+  componentDidMount () {
+    log('mount1')
   }
   render () {
     return (
-      <div styleName='wrap'>{this.props.prop}</div>
+      <div styleName='wrap'>22{this.props.prop}</div>
     )
   }
 }

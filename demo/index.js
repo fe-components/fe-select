@@ -1,16 +1,25 @@
 import React from 'react'
-import { storiesOf, action } from '@kadira/storybook'
+import {
+  storiesOf
+  // action
+} from '@kadira/storybook'
 import Alert from '../src/'
 
 storiesOf('Alert', module)
   .add('with text', () => (
-    <Alert prop='text' />
+    <div>
+      <Alert prop='xxx' />
+      <button>test</button>
+    </div>
   ))
   .add('with long text', () => (
     <Alert prop='long text.......' />
   ))
+  .add('11111', () => (
+    <Alert prop='1111.......' />
+  ))
 
-storiesOf('Alert2', module)
+storiesOf('Table', module)
   .add('more example', () => (
     <Alert prop='more example' />
   ))
@@ -18,6 +27,10 @@ storiesOf('Alert2', module)
     <Alert prop='more example' />
   ))
 
-if (module.hot) {
-  module.hot.accept();
-}
+storiesOf('Sug', module)
+  .add('more example', () => (
+    <Alert prop='more example' />
+  ))
+  .add('more example', () => (
+    <Alert prop='more example' />
+  ))
