@@ -4,6 +4,14 @@ import {
   // action
 } from '@kadira/storybook'
 import Alert from '../src/'
+/*
+import Button from 'fe-button'
+
+const theme = {
+
+}*/
+
+// console.log(Button)
 
 storiesOf('Alert', module)
   .add('with text', () => (
