@@ -59,7 +59,7 @@ export default {
     }, {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract('style', 'css?modules'),
-      include: paths.src
+      include: paths.src_path
     }, {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract('style', 'css'),
@@ -68,12 +68,12 @@ export default {
       test: /\.styl$/,
       // 'style!css?modules!stylus',
       loader: ExtractTextPlugin.extract('style', 'css?modules!stylus'),
-      include: paths.src
+      include: paths.src_path
     }, {
       test: /\.jsx?$/,
       loader: 'babel',
       // only handle js file in src
-      include: paths.src
+      include: paths.src_path
     }, {
       test: /\.(jpe?g|png|gif|svg)$/i,
       loaders: [

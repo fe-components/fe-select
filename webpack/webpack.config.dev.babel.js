@@ -59,7 +59,7 @@ export default {
     }, {
       test: /\.css$/,
       loader: 'style!css?modules',
-      include: paths.src
+      include: paths.src_path
     }, {
       test: /\.css$/,
       loader: 'style!css',
@@ -67,12 +67,12 @@ export default {
     }, {
       test: /\.styl$/,
       loader: 'style!css?modules!stylus',
-      include: paths.src
+      include: paths.src_path
     }, {
       test: /\.jsx?$/,
       loader: 'babel',
       // only handle js file in src
-      include: paths.src
+      include: paths.src_path
     }, {
       test: /\.(jpe?g|png|gif|svg)$/i,
       loader: 'url'

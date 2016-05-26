@@ -1,8 +1,10 @@
+import fs from 'fs'
 import path from 'path'
 const base = path.join(__dirname, '..')
 const pkg = `${base}/package.json`
 const src = `${base}/src`
 const dist = `${base}/lib`
+const modules = `${base}/node_modules`
 
 let lint = [
   `${base}/src/**/*.js`,
@@ -15,6 +17,10 @@ try {
   ignore.map((item) => lint.push(`!${base}/${item}`))
 } catch (e) {}
 
+let internalModules = fs.readdirSync(modules)
+  .filter(folder => !!~folder.indexOf('fe-'))
+  .map(folder => `${modules}/${folder}`)
+
 export default {
   base,
   pkg,
@@ -22,5 +28,6 @@ export default {
   dist,
   lint,
   webpack: `${base}/webpack`,
-  node_modules: `${base}/node_modules`
+  node_modules: modules,
+  src_path: internalModules.concat(src)
 }
