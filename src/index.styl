@@ -1,3 +1,50 @@
-.wrap
-  background #efe
-  border 1px solid #aaa
+.Select
+  display inline-block
+  vertical-align middle
+  :global .Select
+    border-radius 0
+  :global .Select-control    //TODO   check it is save?
+    overflow auto
+  >label
+    display box
+    display -webkit-box
+    display -moz-box
+    box-align center
+    -webkit-box-align center
+    -moz-box-align center
+    .label
+      display inline-block
+      font-size 13px
+      margin-right 10px
+    .required
+      position relative
+    .required:before
+      content '*'
+      color #f45834
+      position absolute
+      line-height 34px
+      display inline-block
+      // height 22px
+      width 1em
+      font-size 2em
+      transform translate(-50%)
+      font-family arail
+  div
+    border-radius 0
+  :global .Select-control
+    height 34px
+    font-size 13px
+  :global .Select-input
+    height 32px
+  :global .Select-option.is-selected
+    background-color #f7f7f7
+  :global .Select-option.is-focused
+    background-color #fbfbfb
+  :global .is-disabled
+    cursor no-drop
+    *
+      cursor inherit
+    :global .Select-value-label
+      color #ccc !important
+  :global .Select-clear-zone
+    line-height normal

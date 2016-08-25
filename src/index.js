@@ -1,28 +1,68 @@
 import React, { Component, PropTypes } from 'react'
+import Select from 'react-select'
 import CSSModules from 'react-css-modules'
-import { log } from './utils'
+
+import 'react-select/dist/react-select.min.css'
 import styles from './index.styl'
 
-import test from './test.jpg'
-
 @CSSModules(styles, { allowMultiple: true, errorWhenNotFound: false })
+
 export default class extends Component {
   static propTypes = {
-    prop: PropTypes.string.isRequired
+    inputWidth: PropTypes.string,
+    labelWidth: PropTypes.string,
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
+    ]),
+    options: PropTypes.arrayOf(PropTypes.shape({
+      label: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.element
+      ]),
+      value: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+      ])
+    })),
+    onChange: PropTypes.func,
+    disabled: PropTypes.bool,
+    required: PropTypes.bool
   }
   static defaultProps = {
-    prop: 'default'
+    inputWidth: '200px'
   }
-  state = {
+  handleChange (v) {
+    if (!this.props.multi && Array.isArray(v)) {                                                    // 防止传回错误的value
+      return false
+    }
+    let e = {}
+    e.target = {}
+    if (v) {
+      e.target.value = v.value || v.map(o => o.value)
+    } else {
+      e.target.value = ''
+    }
+    this.props.onChange(e)
   }
-  componentDidMount () {
-    log('mount1')
-  }
+
   render () {
     return (
-      <div styleName='wrap'>
-        22{this.props.prop}
-        <img src={test} />
+      <div styleName='Select' style={Object.assign({}, this.props.style)}>
+        <label>
+          {
+            this.props.label
+            ? <span styleName={this.props.required ? 'label required' : 'label'} style={Object.assign({}, {width: this.props.labelWidth})}>{this.props.label}</span>
+            : <span></span>
+          }
+          <div style={Object.assign({}, {width: this.props.inputWidth})}>
+            <Select
+              searchable={false}
+              clearable={false}
+              {...this.props}
+              onChange={this.props.onChange ? this.handleChange.bind(this) : null} />
+          </div>
+        </label>
       </div>
     )
   }

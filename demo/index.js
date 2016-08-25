@@ -3,7 +3,7 @@ import {
   storiesOf
   // action
 } from '@kadira/storybook'
-import Alert from '../src/'
+import Select from '../src/'
 /*
 import Button from 'fe-button'
 
@@ -13,32 +13,9 @@ const theme = {
 
 // console.log(Button)
 
-storiesOf('Alert', module)
-  .add('with text', () => (
+storiesOf('Select', module)
+  .add('simple select', () => (
     <div>
-      <Alert prop='xxx' />
-      <button>test</button>
+      <Select value='' options={[{label: '全部', value: '0'}, {label: '1', value: '1'}]} />
     </div>
-  ))
-  .add('with long text', () => (
-    <Alert prop='long text.......' />
-  ))
-  .add('11111', () => (
-    <Alert prop='1111.......' />
-  ))
-
-storiesOf('Table', module)
-  .add('more example', () => (
-    <Alert prop='more example' />
-  ))
-  .add('more example', () => (
-    <Alert prop='more example' />
-  ))
-
-storiesOf('Sug', module)
-  .add('more example', () => (
-    <Alert prop='more example' />
-  ))
-  .add('more example', () => (
-    <Alert prop='more example' />
   ))
