@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.lianjia.com:react/fe-select.git"
+    "url": "git@github.com:fe-templates/fe-select.git"
   },
   "devDependencies": {
     "@kadira/storybook": "^1.12.0",
